@@ -8,14 +8,19 @@ from wtforms import Form, BooleanField as BField, StringField, PasswordField, In
 from utils import *
 import datetime, time
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+
+import bottle
+from bottle.ext.beaker.middleware import SessionMiddleware
+
 session_opts = {
     'session.type': 'file',
-    'session.data_dir': './session/',
-    'session.auto': True,
+    'session.cookie_expires': 300,
+    'session.data_dir': './session',
+    'session.auto': True
 }
 
-app = beaker.middleware.SessionMiddleware(bottle.app(), session_opts)
-
+app = SessionMiddleware(bottle.app(), session_opts)
 
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
     return value.strftime(format)
@@ -35,6 +40,12 @@ def session_test():
     varsession['value1'] = 'This is the value'
     return varsession['value1']
 
+@bottle.route('/test')
+def test():
+    s = bottle.request.environ.get('beaker.session')
+    s['test'] = s.get('test',0) + 1
+    s.save()
+    return 'Test counter: %d' % s['test']
 
 def view(template_name):
     def decorator(view_func):
