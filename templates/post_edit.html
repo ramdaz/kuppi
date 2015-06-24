@@ -10,15 +10,12 @@
 {% block content %}
 
 <h1> Write a Post</h1>
-<form method="POST" enctype="multipart/form-data"  action="/post">
+<form method="POST" enctype="multipart/form-data"  action="/post_edit/{{ pid }}">
 
 
     <div>
         {{ form.title.label }}:
         {{ form.title }}
-	{% if form.draft.errors %} 
-	<br> {{ form.errors }}
-	{% endif %}
     </div>
        <div>
         {{ form.intro.label }}:
@@ -67,9 +64,6 @@
 	    {{ form.draft.label }}:
 
         {{ form.draft }} <br>
-	{% if form.draft.errors %} 
-	{{ form.errors }}
-	{% endif %}
 	<p> If it is not Draft, we automatically take it as published</p>
     </div>
     
