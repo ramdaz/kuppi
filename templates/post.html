@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block ajax %}
+
+
+<script src="http://cdn.ckeditor.com/4.4.7/full/ckeditor.js"></script>	<script>
+	CKEDITOR.replace('#body');
+	
+	</script>
+{% endblock %}
+{% block content %}
+
+<h1> Write a Post</h1>
+<form method="POST" enctype="multipart/form-data"  action="/post">
+
+
+    <div>
+        {{ form.title.label }}:
+        {{ form.title }}
+    </div>
+       <div>
+        {{ form.intro.label }}:
+        {{ form.intro }}
+    </div>
+  <script>
+
+			// This call can be placed at any point after the
+			// <textarea>, or inside a <head><script> in a
+			// window.onload event handler.
+
+			// Replace the <textarea id="editor"> with an CKEditor
+			// instance, using default configurations.
+
+			CKEDITOR.replace( 'intro' );
+
+		</script>
+    <div>
+        {{ form.body.label }}:
+        {{ form.body }}
+    </div>
+    <script>
+
+			// This call can be placed at any point after the
+			// <textarea>, or inside a <head><script> in a
+			// window.onload event handler.
+
+			// Replace the <textarea id="editor"> with an CKEditor
+			// instance, using default configurations.
+
+			CKEDITOR.replace( 'body' );
+
+		</script>
+    
+        <div>
+        {{ form.tags.label }}:
+        {{ form.tags }}
+    </div>
+    
+            <div>
+        {{ form.draft.label }}:
+        {{ form.draft }} <br>
+	<p> If it is not Draft, we automatically take it as published</p>
+    </div>
+    
+    
+<input type="submit"  name="Publish"/>
+</form>
+{% endblock %}

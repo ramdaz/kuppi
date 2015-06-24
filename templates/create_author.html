@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Create an Author</h1>
+<form method="POST" enctype="multipart/form-data"  action="/create_author">
+
+
+    <div>
+        {{ form.name.label }}:
+        {{ form.name  }}
+    </div>
+       <div>
+        {{ form.bio.label }}:
+        {{ form.bio }}
+    </div>
+  
+    
+     
+<input type="submit"  name="Publish"/>
+</form>
+{% endblock %}
