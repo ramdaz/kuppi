@@ -15,6 +15,8 @@ session_opts = {
 }
 
 app = beaker.middleware.SessionMiddleware(bottle.app(), session_opts)
+
+
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
     return value.strftime(format)
 env = jinja2.Environment(
@@ -27,7 +29,11 @@ env.globals.update({
 })
 env.filters['datetimeformat'] = datetimeformat
 
-
+@route('/session_test')
+def session_test():
+    varsession = bottle.request.environ.get('beaker.session')
+    varsession['value1'] = 'This is the value'
+    return varsession['value1']
 
 
 def view(template_name):
