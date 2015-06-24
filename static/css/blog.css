@@ -75,7 +75,7 @@ h3 {
     text-decoration: none;
 }
 
-.content-subhead {
+.content-subhead2 {
     text-transform: uppercase;
     color: #aaa;
     border-bottom: 1px solid #eee;
@@ -83,7 +83,21 @@ h3 {
     font-size: 80%;
     font-weight: 500;
     letter-spacing: 0.1em;
+
+    width:60%;
 }
+
+.content-subhead {
+    text-transform: uppercase;
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+    padding: 0.4em 0;
+    font-size: 80%;
+    font-weight: 500;
+    letter-spacing: 0.1em;    width:30%;
+
+}
+
 
 .content {
     padding: 2em 1em 0;

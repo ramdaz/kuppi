@@ -1,5 +1,6 @@
 import os, sys, getpass,re
 from settings import *
+from utils import *
 email_re = re.compile(
     r"(^[-!#$%&'*+/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+/=?^_`{}|~0-9A-Z]+)*"  # dot-atom
     r'|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*"' # quoted-string
@@ -37,7 +38,7 @@ def create():
 	while x==False:
 	    print "Your passwords did not match\n. Try Again"
 	    x,y =type_password()
-	user = User.create(username=username, password=y, email=email, created=datetime.datetime.now())
+	user = create_user(username=username, password=y, email=email)
 	user.save()
 	admin =Admin.create(username=username)
 	admin.save()

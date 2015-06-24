@@ -4,7 +4,7 @@ import os, jinja2, random, bottle
 import beaker.middleware
 from functools import wraps
 from hashlib import md5, sha256
-from wtforms import Form, BooleanField, StringField, PasswordField, validators, TextAreaField, FileField
+from wtforms import Form, BooleanField as BField, StringField, PasswordField, IntegerField as IField, validators, TextAreaField, FileField
 from utils import *
 import datetime, time
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -72,26 +72,23 @@ def admin_required(f):
 	    if not s.get('logged_in'):
 		return redirect('/login')
 	    else:
+		h= s.get('username')
 		try:
-		    x= Admin.load(s)
+		    x= Admin.load(h)
 		except:
 		    return "You need to be an Admin to do Access this Functions"
+	    return f(*args, **kwargs)
 	else:
 	    return redirect('/login')
     return inner
+def is_admin(username):
+    try:
+	admin =Admin.load(username)
+	return True
+    except:
+	return False
 def location(f):
     return os.path.join(BASE_DIR, f)
-
-class LoginForm(Form):
-    username     = StringField('Username', [validators.Length(min=4, max=25)])
-    password     = PasswordField('Password', [validators.Length(min=8, max=35)])
-@get("/login")
-@route( "/login")
-@view('login.html')
-def login():
-    
-    form = LoginForm()
-    return {"form":form}
 
 def check_login(username, password):
     try:
@@ -118,9 +115,102 @@ def auth_user(username):
     except KeyError:
 	pass
     s.save()
-    	
 
+def get_user():
+    s = bottle.request.environ.get('beaker.session')
+
+    if s['logged_in'] == True:
+	return s['username'] 
+    return None
     
+def unique_slugify(title, all_list):
+    s= ''.join([t.lower() for t in title if (t.isalnum() or t==" " or t=="-")])
+    s= s.replace(" ", "-")
+    if s in all_list:
+	s+=str(random.random())[:4]
+    return s
+
+def slugify(title):
+    s= ''.join([t.lower() for t in title if (t.isalnum() or t==" " or t=="-")])
+    s= s.replace(" ", "-")
+    return s
+def get_available_name(name):
+    if os.path.exists(name):
+
+	dir_name, file_name = os.path.split(name)
+	file_root, file_ext = os.path.splitext(file_name)
+	new_file_name = file_root +"_"+get_random_string() + file_ext
+	return os.path.join(dir_name, new_file_name)
+    else:
+	return name
+
+
+###############ENV FILTERS###################
+
+
+def get_author_name(username):
+    
+    try:
+	author=Author.load(self.author)
+	return author.name
+    except:
+	return username
+    
+def get_author_url(self):
+    try:
+	author=Author.load(self.author)
+	return author.get_absolute_url()
+    except:
+	return "#"
+    return "#"
+    
+env.filters['get_author_name'] = get_author_name
+env.filters['get_author_url'] = get_author_url
+def get_author_pic(username):
+    
+    try:
+	author=Author.load(username)
+	return author.get_pic_url()
+    except:
+	return ""
+
+def get_author_bio(username):
+    try:
+	author=Author.load(username)
+	return author.bio
+    except:
+	return ""
+
+def get_absolute_url_post(pid):
+    try:
+	post=Post.load(pid)
+	return post.get_absolute_url()
+    except:
+	return ""
+
+def get_tags(pid):
+    odd ="post-category post-category-design"
+    even ="post-category post-category-pure"
+    post = Post.load(pid)
+    tags = list(post.tags)
+    x=" "
+    for tag in tags:
+	if tags.index(tag)%2==0:
+	    x+='<a class="%s" href="/tags/%s">%s</a>' %(even,tag, tag)
+	elif tags.index(tag)%2==1:
+	    x+='<a class="%s" href="/tags/%s">%s</a>' %(odd,tag, tag)
+    return x
+env.filters['get_author_pic'] =get_author_pic
+env.filters['get_author_bio'] = get_author_bio
+env.filters['get_tags'] =get_tags
+
+env.filters['get_absolute_url_post'] = get_absolute_url_post
+
+#################################MODELS###################################
+
+
+
+
 
 class Author(BaseModel):
     user = TextField(primary_key=True)
@@ -134,23 +224,25 @@ class Author(BaseModel):
     
     
 class Post(BaseModel):
-    author = TextField()
+    author = TextField(index=True)
     pid = AutoIncrementField(primary_key=True)
+    
     title = TextField(index=True)
-    slug = TextField()
-    intro = TextField()
-    body = TextField()
-    created = DateTimeField()
+    keywords = TextField()
+    slug = TextField(index=True)
+    intro = TextField(index=True)
+    body = TextField(index=True, fts=True)
+    created = DateTimeField(index=True)
     edited = DateTimeField()
     tags = SetField()
-    draft     = IntegerField()
+    draft = IntegerField(index=True)
     
     def __unicode__(self):
 	return self.title
     def get_absolute_url(self):
 	return "/posts/%s/%s" %(self.slug, self.pid)
 
-    
+
 class File(BaseModel):
     filename = TextField()
     path = TextField()
@@ -169,25 +261,53 @@ class File(BaseModel):
 		return False
 	return False
 
+
+
+################################WTF FORM CLASSES ####################################    
+
+class LoginForm(Form):
+    username     = StringField('Username', [validators.Length(min=4, max=25)])
+    password     = PasswordField('Password', [validators.Length(min=8, max=35)])
+
+
+
 class FileForm(Form):
     filename =StringField('Title', [validators.Length(min=4, max=125)])
     upload = FileField()
     
+class PostForm(Form):
+    title     = StringField('Title', [validators.Length(min=4, max=125)])
+    intro     = TextAreaField('Introduction')
+    keywords  = StringField('Key  Words', [validators.Length(min=4, max=125)])
+    body      = TextAreaField()
+    draft     = BField("Is it Draft")
+    tags      = StringField( "Tags",[validators.Length(min=4, max=125)])
+    
+
+class AuthorForm(Form):
+    name = StringField('Name', [validators.Length(min=4, max=125)])
+    bio      = TextAreaField()
+    
+
+
+
+####################Form Methods #############################################
+    
+@get("/login")
+@route( "/login")
+@view('login.html')
+def login():
+    
+    form = LoginForm()
+    return {"form":form}
+
 @route("/upload_file")
 @view("upload.html") 
 @login_required   
 def file_form():
     form =FileForm()
     return {"form":form}
-def get_available_name(name):
-    if os.path.exists(name):
 
-	dir_name, file_name = os.path.split(name)
-	file_root, file_ext = os.path.splitext(file_name)
-	new_file_name = file_root +"_"+get_random_string() + file_ext
-	return os.path.join(dir_name, new_file_name)
-    else:
-	return name
 
 @route("/upload_file", method="POST")
 @login_required   
@@ -213,16 +333,7 @@ def file_form():
 	    return redirect("/"+F.path)
 	else:
 	    return "File Uploaded Successfully"
-class PostForm(Form):
-    title     = StringField('Title', [validators.Length(min=4, max=125)])
-    intro     = TextAreaField('Introduction')
-    body      = TextAreaField()
-    tags      =StringField( "Tags",[validators.Length(min=4, max=125)])
-    draft     = BooleanField()
 
-class AuthorForm(Form):
-    name = StringField('Name', [validators.Length(min=4, max=125)])
-    bio      = TextAreaField()
 @route("/create_author")    
 @view("create_author.html") 
 @login_required   
@@ -268,43 +379,33 @@ def post():
     return {"form": form }
 
 
-def unique_slugify(title, all_list):
-    s= ''.join([t.lower() for t in title if (t.isalnum() or t==" " or t=="-")])
-    s= s.replace(" ", "-")
-    if s in all_list:
-	s+=str(random.random())[:4]
-    return s
-
-def slugify(title):
-    s= ''.join([t.lower() for t in title if (t.isalnum() or t==" " or t=="-")])
-    s= s.replace(" ", "-")
-    return s
 @route("/post", method="POST")
 @login_required
 def do_post():
     form = PostForm(request.forms)
     if form.validate():
-	
+	s = bottle.request.environ.get('beaker.session')
+	username =s['username']
 	
 	slugs = [p.slug for p in Post.all()]
 	
 	    
+	    
 	slug = unique_slugify(form.title.data, slugs)
-	post =Post.create(title=form.title.data, intro= form.intro.data, body =form.body.data, created=datetime.datetime.now(),\
-	edited=datetime.datetime.now(),  slug=slug)
 	if form.draft.data==True:
-	    post.draft=1
+	    draft=1
 	else:
-	    post.draft=0
+	    draft=0
+	post =Post.create(title=form.title.data, intro= form.intro.data, body =form.body.data, created=datetime.datetime.now(),\
+	edited=datetime.datetime.now(),  slug=slug, draft=draft, author=username)
+
 	post.save()
 	if len(form.tags.data)>4:
 	    tags = form.tags.data.split(",")
 	    for tag in tags:
 		post.tags.add(tag.strip(' '))
 
-	s = bottle.request.environ.get('beaker.session')
-	username =s['username']
-	post.author =username
+
 	post.save()
 	return redirect(post.get_absolute_url())
 	#return redirect("/posts/%s/%s" %(post.slug,post.pid))
@@ -312,6 +413,7 @@ def do_post():
 @route("/posts/<slug>/<pid:int>")
 @view("post_detail.html")
 def post_detail(slug,pid):
+    user=get_user()
     post =Post.load(int(pid))
     body = post.body
     title = post.title
@@ -323,26 +425,21 @@ def post_detail(slug,pid):
 	really_edited=None
     else:
 	really_edited=True
-    try:
-	author =Author.load(post.author)
-	author_name =author.name
-	author_bio =author.bio
-	author_dic = {"author_name":author_name,"author_bio":author_bio}
-    except:
-	author_dic ={} #{"author_name":author_name,"author_bio":author_bio}
+   
     return {"body":post.body,"title":post.title,"author":post.author,"edited":post.edited,"created":post.created,"intro":post.intro,
-     "slug":post.slug, "author_dic": author_dic, "really_edited":really_edited}
+     "slug":post.slug, "user": user,"pid":pid, "really_edited":really_edited}
 		
 
 
 @route("/post_edit/<pid:int>")
-@view("post.html")   
+@view("post_edit.html")   
 @login_required 
 def post_edit(pid):
     post =Post.load(int(pid))
-    data = {"title":post.title, "intro": post.intro, "body":post.body, "draft":post.draft}
+    data = {"title":post.title, "keywords": post.keywords, "intro": post.intro, "body":post.body, "draft":post.draft}
     form =PostForm(data=data)
-    return {"form": form }
+    return {"form": form,     "user":get_user(),  "pid": pid}
+
 
 @route("/post_edit/<pid:int>", method="POST")
 @login_required 
@@ -353,13 +450,19 @@ def post_edit(pid):
 	s = bottle.request.environ.get('beaker.session')
 	username =s['username']
 	post =Post.load(int(pid))
-	if post.author == username:
+	if post.author == username or  is_admin(username):
+	    pass
+	else:
 	    return "You do not have Permissions"
 	post.title =form.title.data
 	post.intro= form.intro.data
 	post.body =form.body.data
-	post.edited=datetime.datetime.now(), 
-	draft= form.draft.data
+	post.keywords = form.keywords.data
+	post.edited=datetime.datetime.now()
+	if form.draft.data==True:
+	    post.draft=1
+	else:
+	    post.draft=0
 	
 	post.save()
 	if len(form.tags.data)>4:
@@ -369,8 +472,19 @@ def post_edit(pid):
 
 	post.save()
 	return redirect("/posts/%s/%s" %(post.slug,post.pid))
+    else:
+	return "SNAFU"
+
+class Post_View(BaseModel):
+    pid = IntegerField(primary_key=True)
+    views =IntegerField(index=True)
+    ipaddress = TextField(index=True)
 
 
+    
+    def increment(self):
+	self.views+=1
+	self.save()
     
 @route("/login", method="POST")
 def do_login():
@@ -388,21 +502,12 @@ def do_login():
 	return "<p>Chooth does not Exist.</p>"
 	
 
-def create_user(username, password, email):
-    try:
-	user = User.get(username=username)
-	return False
-    except:
-	password = sha256(SECRET_KEY+password).hexdigest()
-	user = User.create(username=username, password=password, email=email)
-	return user
-    return True
-    
+
 
 class RegistrationForm(Form):
     username     = StringField('Username', [validators.Length(min=4, max=25)])
     email        = StringField('Email Address', [validators.Length(min=6, max=35)])
-    password     = PasswordField('Password', [validators.Length(min=8, max=35)])
+    password     = PasswordField('Password', [validators.Length(min=4, max=35)])
     #accept_rules = BooleanField('I accept the site rules', [validators.InputRequired()])
     #class Meta:
         #csrf = True
@@ -430,10 +535,7 @@ def register():
     else:
 	return "SNAFU"
     return {"form": form}
-    
-    
-
-
+  
 @route("/static/<filename>")
 def server_static(filename):
     return static_file(filename, location("static"))
@@ -448,12 +550,7 @@ def server_media_path(filepath):
     return static_file(filepath, location("media"))
 
 
-@route('/', name='home')
-@view('index.html')
-def home():
-    posts =list(Post.query(Post.draft!=1))[:HOME_PAGE_LIMIT]
 
-    return {'posts': posts}
 @route("/app_dir", name="app_dir")
 def dir_app():
     return str(dir(app))
@@ -463,61 +560,43 @@ def dir_app():
 def log():
     return redirect("/app_dir")
 @route('/authors/<username>')
+@view('/author_stories.html')
+def author_details(username):
+    posts= Post.query(Post.author==username)
+    return {"user": get_user(), "posts":posts}
     
-
-
-@route('/logout/')
+@route('/tags/<tag>')
+@view('/tag_stories.html')
+def tag_details(tag):
+    posts= list(p for p in Post.all() if tag in list(p.tags))
+    return {"user": get_user(), "posts":posts}
+@route('/logout')
+@route('/logout')
 def logout():
     s = bottle.request.environ.get('beaker.session')
     s['logged_in'] = None
     s.save()
     return redirect("/")
+@route('/', name='home')
+@view('index.html')
+def home():
+    posts =list(Post.query(Post.draft!=1, order_by=Post.created.desc()))[:HOME_PAGE_LIMIT]
+
+    return {'posts': posts, "user":get_user()}
 
 
+###Dashboard###
 
+@route('/dashboard', name='dashboard')
+@view("dashboard.html")
+@login_required
+def dashboard():
+    s = bottle.request.environ.get('beaker.session')
+    username =s['username']
+    if is_admin(username):
+	posts=Post.query(order_by=Post.created.desc())
+    else:
+	posts= Post.query(Post.author==username, order_by=Post.created.desc())
+    return {"posts":posts}
 
-def get_author_name(username):
-    
-    try:
-	author=Author.load(self.author)
-	return author.name
-    except:
-	return username
-    
-def get_author_url(self):
-    try:
-	author=Author.load(self.author)
-	return author.get_absolute_url()
-    except:
-	return "#"
-    return "#"
-    
-env.filters['get_author_name'] = get_author_name
-env.filters['get_author_url'] = get_author_url
-def get_author_pic(username):
-    
-    try:
-	author=Author.load(username)
-	return author.get_pic_url()
-    except:
-	return ""
-
-def get_author_bio(username):
-    try:
-	author=Author.load(username)
-	return author.bio
-    except:
-	return ""
-
-def get_absolute_url_post(pid):
-    try:
-	post=Post.load(pid)
-	return post.get_absolute_url()
-    except:
-	return ""
-env.filters['get_author_pic'] =get_author_pic
-env.filters['get_author_bio'] = get_author_bio
-
-env.filters['get_absolute_url_post'] = get_absolute_url_post
-
-run(app=app, host="127.0.0.1", port=8081, debug=True, autoload=True)
+run(app=app, host="127.0.0.1", port=8008, debug=True, autoload=True)
