@@ -8,7 +8,13 @@ from wtforms import Form, BooleanField as BField, StringField, PasswordField, In
 from utils import *
 import datetime, time
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+session_opts = {
+    'session.type': 'file',
+    'session.data_dir': './session/',
+    'session.auto': True,
+}
 
+app = beaker.middleware.SessionMiddleware(bottle.app(), session_opts)
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
     return value.strftime(format)
 env = jinja2.Environment(
@@ -43,13 +49,7 @@ def view(template_name):
 
     
     
-session_opts = {
-    'session.type': 'file',
-    'session.data_dir': './session/',
-    'session.auto': True,
-}
 
-app = beaker.middleware.SessionMiddleware(bottle.app(), session_opts)
 
 def login_required(f):
     @wraps(f)
@@ -104,17 +104,20 @@ def check_login(username, password):
 	return False, 3
     
 def auth_user(username):
-    s = bottle.request.environ.get('beaker.session')
-
-    s ['logged_in'] = True
-    s['username'] = username
     try:
-	user =User.load(username)
-	user.last_login= datetime.datetime.now()
-	user.save()
-    except KeyError:
-	pass
-    s.save()
+	s = bottle.request.environ.get('beaker.session')
+
+	s ['logged_in'] = True
+	s['username'] = username
+	try:
+	    user =User.load(username)
+	    user.last_login= datetime.datetime.now()
+	    user.save()
+	except KeyError:
+	    pass
+	s.save()
+    except:
+	
 
 def get_user():
     try:
