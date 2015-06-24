@@ -117,8 +117,9 @@ def auth_user(username):
 	    pass
 	s.save()
     except:
-	
-
+	s = bottle.request.environ.set('beaker.session')
+	s ['logged_in'] = True
+	s['username'] = username
 def get_user():
     try:
 	s = bottle.request.environ.get('beaker.session')
