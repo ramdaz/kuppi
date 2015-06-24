@@ -117,11 +117,13 @@ def auth_user(username):
     s.save()
 
 def get_user():
-    s = bottle.request.environ.get('beaker.session')
+    try:
+	s = bottle.request.environ.get('beaker.session')
 
-    if s['logged_in'] == True:
-	return s['username'] 
-    return None
+	if s['logged_in'] == True:
+	    return s['username']
+    except:
+	return None
     
 def unique_slugify(title, all_list):
     s= ''.join([t.lower() for t in title if (t.isalnum() or t==" " or t=="-")])
@@ -599,4 +601,9 @@ def dashboard():
 	posts= Post.query(Post.author==username, order_by=Post.created.desc())
     return {"posts":posts}
 
-run(app=app, host="127.0.0.1", port=8008, debug=True, autoload=True)
+from local_settings import *
+
+if DEBUG_MODE==True:
+    run(app=app, host="127.0.0.1", port=8008, debug=True, autoload=True)
+else:
+    pass
