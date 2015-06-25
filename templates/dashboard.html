@@ -108,7 +108,7 @@ $(document).ready(function () {
   <tr>
       
     <td><a href="/post_edit/{{ post.pid }}">{{ post.title }} </a></td>  
-    <td>{{ post.pid|get_tags }}</td>
+    <td>{{ post.pid|get_tags|safe }}</td>
     <td>{{ post.author|get_author_name }}</td>
         <td>{{ post.created|datetimeformat }}</td>
         <td>{{ post.edited|datetimeformat }}</td>
