@@ -14,7 +14,7 @@ import bottle
 from beaker.middleware import SessionMiddleware
 session_opts = {
     'session.type': 'file',
-    'session.cookie_expires': 300,
+    'session.cookie_expires': 1800,
     'session.data_dir': './session',
     'session.auto': True
 }
@@ -37,6 +37,7 @@ env.filters['datetimeformat'] = datetimeformat
 def session_test():
     app = SessionMiddleware(bottle.app(), session_opts)
     varsession = bottle.request.environ.get('beaker.session')
+    return str(dir(varsession))
     varsession['value1'] = 'This is the value'
     return varsession['value1']
 
