@@ -11,8 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 import bottle
-from bottle.ext.beaker.middleware import SessionMiddleware
-
+from beaker.middleware import SessionMiddleware
 session_opts = {
     'session.type': 'file',
     'session.cookie_expires': 300,
