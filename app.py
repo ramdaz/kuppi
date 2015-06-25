@@ -14,7 +14,7 @@ import bottle
 from beaker.middleware import SessionMiddleware
 session_opts = {
     'session.type': 'file',
-    'session.cookie_expires': 1800,
+    'session.cookie_expires': 144000,
     'session.data_dir': './session',
     'session.auto': True
 }
