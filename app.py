@@ -252,10 +252,7 @@ class Author(BaseModel):
 	return self.user
     def get_absolute_url(self):
 	return "/authors/%s" %(self.user)
-    
-class Avatar(BaseModel):
-    user = TextField(primary_key=True)
-    picture= TextField()
+
 class Post(BaseModel):
     author = TextField(index=True)
     pid = AutoIncrementField(primary_key=True)
