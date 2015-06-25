@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Upload</h1>
+<form method="POST" enctype="multipart/form-data"  action="/create_avatar">
+
+
+    <div>
+        {{ form.username.label }}:
+        {{ form.username  }}
+    </div>
+       <div>
+        {{ form.upload.label }}:
+        {{ form.upload }}
+    </div>
+  
+    
+     
+<input type="submit"  name="Publish"/>
+</form>
+{% endblock %}
