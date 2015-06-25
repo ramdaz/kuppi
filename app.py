@@ -19,7 +19,7 @@ session_opts = {
     'session.auto': True
 }
 
-app = SessionMiddleware(bottle.app(), session_opts)
+app = SessionMiddleware(bottle.default_app(), session_opts)
 
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
     return value.strftime(format)
