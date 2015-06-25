@@ -107,7 +107,7 @@
                 <!-- A single blog post -->
                 <section class="post">
                     <header class="post-header">
-                        <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="img/common/tilo-avatar.png">
+                        <img class="post-avatar" alt="{{ author}}"  {{ post.author|get_avatar|safe }}>
 
                         <h2 class="post-title">{{ post.title }}</h2>
 
