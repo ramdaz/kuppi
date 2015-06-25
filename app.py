@@ -35,6 +35,7 @@ env.filters['datetimeformat'] = datetimeformat
 
 @route('/session_test')
 def session_test():
+    app = SessionMiddleware(bottle.app(), session_opts)
     varsession = bottle.request.environ.get('beaker.session')
     varsession['value1'] = 'This is the value'
     return varsession['value1']
