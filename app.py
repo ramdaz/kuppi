@@ -181,9 +181,9 @@ def get_author_name(username):
     except:
 	return username
     
-def get_author_url(self):
+def get_author_url(username):
     try:
-	author=Author.load(self.author)
+	author=Author.load(author)
 	return author.get_absolute_url()
     except:
 	return "#"
@@ -212,7 +212,12 @@ def get_absolute_url_post(pid):
 	return post.get_absolute_url()
     except:
 	return ""
-
+def get_avatar(username):
+    try:
+	avatar=Avatar.load(username)
+	return '<img src="/%s">' %(avatar.path)
+    except:
+	return '<img src="/static/user.png">'
 def get_tags(pid):
     odd ="post-category post-category-design"
     even ="post-category post-category-pure"
@@ -230,6 +235,7 @@ env.filters['get_author_bio'] = get_author_bio
 env.filters['get_tags'] =get_tags
 
 env.filters['get_absolute_url_post'] = get_absolute_url_post
+env.filters['get_avatar'] = get_avatar
 
 #################################MODELS###################################
 
@@ -247,7 +253,9 @@ class Author(BaseModel):
     def get_absolute_url(self):
 	return "/authors/%s" %(self.user)
     
-    
+class Avatar(BaseModel):
+    user = TextField(primary_key=True)
+    picture= TextField()
 class Post(BaseModel):
     author = TextField(index=True)
     pid = AutoIncrementField(primary_key=True)
@@ -286,7 +294,19 @@ class File(BaseModel):
 		return False
 	return False
 
-
+class Avatar(BaseModel):
+    username = TextField(primary_key=True)
+    path =TextField()
+    def is_image(self):
+	if self.path !=None:
+	    
+	    try:
+		ext=(os.path.splitext(self.path)[1]).lower()
+		if ext in (".jpg", ".gif", ".png", ".jpeg"):
+		    return True
+	    except:
+		return False
+	return False
 
 ################################WTF FORM CLASSES ####################################    
 
@@ -313,7 +333,9 @@ class AuthorForm(Form):
     name = StringField('Name', [validators.Length(min=4, max=125)])
     bio      = TextAreaField()
     
-
+class AvatarForm(Form):
+    username = StringField('User Name', [validators.Length(min=4, max=125)])
+    upload = FileField()
 
 
 ####################Form Methods #############################################
@@ -358,6 +380,44 @@ def file_form():
 	    return redirect("/"+F.path)
 	else:
 	    return "File Uploaded Successfully"
+
+
+@route("/create_avatar")
+@view("avatar.html") 
+@login_required   
+def avtar_form():
+    form =AvatarForm()
+    return {"form":form}
+
+from avatar.round_avatar import *
+@route("/create_avatar", method="POST")
+@login_required   
+def avtar_form():
+    form = AvatarForm(request.forms)
+    if form.validate():
+	upload     = request.files.get('upload')
+	name = upload.filename
+	path = os.path.join(BASE_DIR, "media/avatar/")
+	
+	path1 =os.path.join(path, name)
+ 	
+	try:
+	    name =get_available_name(path1)
+	    upload.save(name)
+	    
+	except IOError:
+	    return "Unable to Save the File"
+	
+	F= Avatar.create(username= form.username.data, path=name)
+	F.save()
+	if F.is_image():
+	    path =masker(name,(128,128))
+	    F.path =path
+	    F.save()
+	    return "Avtar Created"
+	else:
+	    return "File Uploaded Successfully"
+
 
 @route("/create_author")    
 @view("create_author.html") 
