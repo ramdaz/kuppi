@@ -10,7 +10,7 @@ import datetime, time
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #Another check,
 from local_settings import *
-if local_settings.DEBUG_MODE==True:
+if DEBUG_MODE==False:
     BASE_DIR = "/var/www/kuppi/"
 import bottle
 from beaker.middleware import SessionMiddleware
