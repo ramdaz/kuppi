@@ -9,7 +9,8 @@ from utils import *
 import datetime, time
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #Another check,
-
+if DEBUG_MODE==True:
+    BASE_DIR = "/var/www/kuppi/"
 import bottle
 from beaker.middleware import SessionMiddleware
 session_opts = {
