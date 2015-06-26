@@ -102,7 +102,9 @@
    
 	    
 	      <div class="posts">
-                <h1 class="content-subhead">Latest Posts</h1>
+                <h1 class="content-subhead">{% block pinned %} 
+From  the blogs of {{ post.author|get_author_name }}
+{% endblock %}</h1>
   {% for post in posts %}
                 <section class="post">
                     <header class="post-header">
@@ -152,5 +154,6 @@
 
 
 
-</body>
+</body>{% include "google_anal.html" %}
+
 </html>
