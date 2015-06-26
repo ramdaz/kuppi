@@ -246,7 +246,7 @@ env.filters['get_avatar'] = get_avatar
 
 
 class Author(BaseModel):
-    user = TextField(primary_key=True)
+    user = TextField(primary_key=True, index=True)
     name = TextField(index=True)
     bio = TextField()
     picture= TextField()
