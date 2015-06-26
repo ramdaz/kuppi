@@ -30,6 +30,9 @@ From  the blogs of {{ author|get_author_name }}
 {{ body|safe }}
                         </p>
                     </div>
+		    <div id="author_bio">
+		    {{ author|get_author_bio|safe }}
+		    </div>
 <div id="comments">
 <!-- START: Livefyre Embed -->
 <div id="livefyre-comments"></div>
