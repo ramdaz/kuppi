@@ -104,17 +104,15 @@
 	      <div class="posts">
                 <h1 class="content-subhead">Latest Posts</h1>
   {% for post in posts %}
-                <!-- A single blog post -->
                 <section class="post">
                     <header class="post-header">
-                        <img class="post-avatar" alt="{{ author}}"  {{ post.author|get_avatar|safe }}>
+                        <img class="post-avatar" alt="{{ author }}"  {{ post.author|get_avatar|safe }} 
 
                         <h2 class="post-title">{{ post.title }}</h2>
 
                         <p class="post-meta">
                             By <a href="/authors/{{ post.author }}" class="post-author">{{ post.author }}</a> under 
-			    <a class="post-category post-category-design" href="#">CSS</a> 
-			    <a class="post-category post-category-pure" href="#">Pure</a>on {{ post.created|datetimeformat }}
+			   {{ post.pid|get_tags|safe }}on {{ post.created|datetimeformat }}
 
                         </p>
 			                    </header>
