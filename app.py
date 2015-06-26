@@ -405,7 +405,11 @@ def avtar_form():
 	except IOError:
 	    return "Unable to Save the File"
 	name1= name
-	name1 =name1.replace(BASE_DIR, "")
+	p = name1.split(BASE_DIR)
+	if len(p)==1:
+	    name1=p[0]
+	else:
+	    name1=p[1]
 	F= Avatar.create(username= form.username.data, path=name1)
 	F.save()
 	if F.is_image():
