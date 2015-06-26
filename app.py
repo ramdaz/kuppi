@@ -370,7 +370,7 @@ def file_form():
 	    name =get_available_name(path1)
 	    upload.save(name)
 	except IOError as e:    
-	    return "I/O error({0}): {1}".format(e.errno, e.strerror)
+	    return "I/O error({0}): {1} {2}".format(e.errno, e.strerror, name)
 	F= File.create(filename= form.filename.data, path=name)
 	F.save()
 	if F.is_image():
