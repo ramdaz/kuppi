@@ -405,7 +405,7 @@ def avtar_form():
 	except IOError:
 	    return "Unable to Save the File"
 	name1= name
-	p = name1.split("kuppi")
+	p = name1.split(BASE_DIR)
 	if len(p)==1:
 	    name1=p[0]
 	else:
@@ -414,7 +414,7 @@ def avtar_form():
 	F.save()
 	if F.is_image():
 	    path =masker(name,(128,128))
-	    F.path =path
+	    F.path =name1
 	    F.save()
 	    return "Avatar Created"
 	else:
