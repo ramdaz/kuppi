@@ -687,6 +687,30 @@ def dashboard():
 	posts= Post.query(Post.author==username, order_by=Post.created.desc())
     return {"posts":posts}
 
+
+class SearchForm(Form):
+    keyword    = StringField('keyword', [validators.Length(min=3, max=125)])
+    
+
+@route("/search_form")    
+@view("search.html")
+def search():
+    form =SearchForm()
+    return {"form": form}
+    
+@route("/search")
+@view("search.html")  
+def do_search():
+    #return dict(request.GET)
+    key = request.GET.get('keyword')
+    key =key.strip()
+    form =SearchForm()
+    if key!=None or len(key)<3:
+	posts = Post.query(Post.body.search(key))
+	return {"posts":posts, "form":form, "key":key}
+    return "Hello"
+    
+
 from local_settings import *
 
 if DEBUG_MODE==True:

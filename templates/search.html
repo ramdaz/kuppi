@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Write a Post</h1>
+<form method="GET" enctype="multipart/form-data"  action="/search">
+
+
+  
+        {{ form.keyword.label }}:
+        {{ form.keyword }}
+	
+    
+<input type="submit"  name="Publish"/>
+</form>
+
+
+
+{% if posts %}
+{% if key %}
+<h1> Search Results for {{ key }}</h1>
+{% endif %}
+{% for post in posts %}
+<h4><a href="{{ post.pid|get_absolute_url_post }}">{{ post.title }}</a></h4>
+<p>{{ post.intro|safe }}</p>
+{% endfor %}
+{% endif %}
+{% endblock %}

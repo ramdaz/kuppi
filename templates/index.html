@@ -58,11 +58,7 @@
 	 <div class="content-subhead2">{% block pinned2 %} Hello {{ user }}{% endblock %}
 	 <ul>
 	 <li> <a href="/dashboard">Dashboard</a></li>
-	 
-	 <li><a href="/post"> Add a Posts</a></li>
-	 
-	 <li> <a href="/create_author">Edit/Add Author Details</a></li>
-	 	 <li> <a href="/logout">Logout</a></li>
+	
 
 	 
 	 </ul>
@@ -81,6 +77,15 @@
 	 {% endif %}
 
         <div class="header">
+	    <form method="GET" enctype="multipart/form-data"  action="/search">
+
+
+        <label for="keyword">Search</label>:
+        <input id="keyword" name="keyword" type="text" value="">
+	
+    
+<input class ="blue" type="submit"  name="Publish"/>
+</form>
             <h1 class="brand-title">Netzary Blog</h1>
             <h2 class="brand-tagline">News, Commentry and the Sundry from Tech World and also from us</h2>
 
