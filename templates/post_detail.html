@@ -9,6 +9,9 @@
 
 {% endblock %}
 
+{% block pinned %} 
+From  the blogs of {{ author|get_author_name }}
+{% endblock %}
 {% block content %}
 
   <header class="post-header">
@@ -16,7 +19,7 @@
                         <h2 class="post-title"> {{ title }}</h2>
 
                         <p class="post-meta">
-                            By <a href="#" class="post-author">{{ author }}</a> under 
+                            By <a href="#" class="post-author">{{ author|get_author_name }}</a> under 
 			    {{ pid|get_tags|safe }} on
 			    {{ created|datetimeformat }} {% if really_edited %} and last updated on {{ edited|datetimeformat  }} {% endif %}
                         </p>
