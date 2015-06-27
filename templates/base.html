@@ -7,7 +7,7 @@
 Kuppi, a stupid, little Blog Engine on Bottle, Redis, Walrus and some crappy code we wrote." {% endblock %}>
 <meta name="keywords" content="{% block keywords %}
 Python, Netzary, Linux, Open Source and other stuff" {% endblock %}">
-    <title>{% block title %} Kuppi, a stupid, little Blog Engine on Bottle, Redis, Walrus and some crappy code we wrote {% endblock %}</title>
+    <title>{% block title %} Netzary Team Blogs {% endblock %}</title>
 
     
 
@@ -118,15 +118,7 @@ Python, Netzary, Linux, Open Source and other stuff" {% endblock %}">
                 </section>
             </div>
 
-            <div class="footer">
-                <div class="pure-menu pure-menu-horizontal">
-                    <ul>
-                        <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
-                        <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
-                        <li class="pure-menu-item"><a href="http://github.com/yahoo/pure/" class="pure-menu-link">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
+          {% include "footer.html" %}
         </div>
     </div>
 </div>
