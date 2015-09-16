@@ -651,7 +651,7 @@ def log():
 @view('/author_stories.html')
 def author_details(username):
     posts= Post.query(Post.author==username)
-    return {"user": get_user(), "posts":posts}
+    return {"user": get_user(), "posts":posts,"author":username}
     
 @route('/tags/<tag>')
 @view('/tag_stories.html')

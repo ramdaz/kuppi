@@ -2,37 +2,27 @@
 {% block title %} {{ title }}{% endblock %}
   {% block keywords %} {{ keywords }}{% endblock %}
 
-{% block sidebar %}
 
-<h3>Author's Bio</h3>
-{{ author|get_author_bio }}
-
-{% endblock %}
-
-{% block pinned %} 
-From  the blogs of {{ author|get_author_name }}
-{% endblock %}
 {% block content %}
 
-  <header class="post-header">
 
-                        <h2 class="post-title"> {{ title }}</h2>
+                        <div class="post-headers"> {{ title }} </div>
 
-                        <p class="post-meta">
+                      
                             By <a href="#" class="post-author">{{ author|get_author_name }}</a> under 
-			    {{ pid|get_tags|safe }} on
+			    {{ pid|get_tags|safe }} <br>on 
 			    {{ created|datetimeformat }} {% if really_edited %} and last updated on {{ edited|datetimeformat  }} {% endif %}
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                        <p>
+                  <br><br>
+<div class="entry-summary22">
 {{ body|safe }}
-                        </p>
-                    </div>
+</div>
 		    <div id="author_bio">
-		    {{ author|get_author_bio|safe }}
+			<h1> Author's Bio</h1>
+		    {{ author|get_author_bio|safe }}      <img class="post-avatar" alt="{{ author }}"  {{ author|get_avatar|safe }} 
+
 		    </div>
+ 
+
 <div id="comments">
 <!-- START: Livefyre Embed -->
 <div id="livefyre-comments"></div>

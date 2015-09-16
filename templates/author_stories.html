@@ -1,159 +1,30 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+{% extends "base.html" %}
 
-    <title> News, Commentry and the Sundry from Tech World and also from  Netzary</title>
+{% block content %}
 
-    
+<h1> From the posts of {{ author }}</h1>
 
+     <img class="post-avatar" alt="{{ author }}"  {{ author|get_avatar|safe }} 
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-
-
-
-<!--[if lte IE 8]>
-  
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-  
-<![endif]-->
-<!--[if gt IE 8]><!-->
-  
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  
-<!--<![endif]-->
-
-
-
-
-
-  
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="/static/css/blog.css">
-    <!--<![endif]-->
-  
-
-
-    
-
-    
-
-</head>
-<body>
-
-
-
-
-
-
-
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
-		{% if user %}
-	 <div class="content-subhead2">{% block pinned2 %} Hello {{ user }}{% endblock %}
-	 <ul>
-	 <li> <a href="/dashboard">Dashboard</a></li>
-	 
-	 <li><a href="/post"> Add a Posts</a></li>
-	 
-	 <li> <a href="/create_author">Edit/Add Author Details</a></li>
-	 	 <li> <a href="/logout">Logout</a></li>
-
-	 
-	 </ul>
-	 
-	 </div>
-	 {% else %}
-	 
-	 <ul>
-	
-	 
-	 <li> <a href="/login">Login</a></li>
-	 
-	 </ul>
-	 
-	 
-	 {% endif %}
-
-        <div class="header">
-            <h1 class="brand-title">Netzary Blog</h1>
-            <h2 class="brand-tagline">News, Commentry and the Sundry from Tech World and also from us</h2>
-
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="pure-button" href="http://netzary.com">Netzary </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="pure-button" href="https://github.com/ramdaz/kuppi/">Kuppi</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
-   
-	    
-	      <div class="posts">
-                <h1 class="content-subhead">{% block pinned %} 
-From  the blogs of {{ post.author|get_author_name }}
-{% endblock %}</h1>
   {% for post in posts %}
-                <section class="post">
-                    <header class="post-header">
-                        <img class="post-avatar" alt="{{ post.author }}"  {{ post.author|get_avatar|safe }} 
+                
+		<div class="post-headers"> {{ post.title }}</div>
 
-                        <h2 class="post-title">{{ post.title }}</h2>
-
-                        <p class="post-meta">
+<div class="entry-summary22">
+                        <p>
                             By <a href="/authors/{{ post.author }}" class="post-author">{{ post.author }}</a> under 
 			   {{ post.pid|get_tags|safe }}on {{ post.created|datetimeformat }}
 
                         </p>
-			                    </header>
+			                 
 
-                    <div class="post-description">
+                
                         <p>
 {{ post.intro|safe }}
                         </p>
 			
 			<p> <a href="{{ post.pid|get_absolute_url_post }}">Read More</a></p>
-			
-                    </div>
-                </section>
-	
+			</div>
 	{% endfor %}
 
-                
-
-               
-            </div>
-
-            <div class="footer">
-                <div class="pure-menu pure-menu-horizontal">
-                    <ul>
-                        <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">Pure CSS Library</a></li>
-                        <li class="pure-menu-item"><a href="http://w/" class="pure-menu-link">Netzary</a></li>
-                        <li class="pure-menu-item"><a href="https://github.com/ramdaz/kuppi/" class="pure-menu-link">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-</body>{% include "google_anal.html" %}
-
-</html>
+{% endblock %}

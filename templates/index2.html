@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="News, Commentry and the Sundry from Tech World and also from  Netzary">
+
+    <title> Official Blog of Team Netzary</title>
+
+    
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"><script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+
+
+
+<!--[if lte IE 8]>
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  
+<!--<![endif]-->
+
+
+
+
+
+  
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/static/css/blog.css">
+    <!--<![endif]-->
+  
+
+
+    
+
+    
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+		{% if user %}
+	 <div class="content-subhead2">{% block pinned2 %} Hello {{ user }}{% endblock %}
+	 <ul>
+	 <li> <a href="/dashboard">Dashboard</a></li>
+	
+
+	 
+	 </ul>
+	 
+	 </div>
+	 {% else %}
+	 
+	 <ul>
+	
+	 
+	 <li> <a href="/login">Login</a></li>
+	 
+	 </ul>
+	 
+	 
+	 {% endif %}
+
+            
+	    {% include "side.html" %}
+	    
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+   
+	    
+	      <div class="posts">
+                <h1 class="content-subhead">Latest Posts</h1>
+  {% for post in posts %}
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="{{ post.author|get_author_name }}"  {{ post.author|get_avatar|safe }} 
+
+                        <h2 class="post-title">{{ post.title }}</h2>
+
+                        <p class="post-meta">
+                            By <a href="/authors/{{ post.author }}" class="post-author">{{ post.author }}</a> under 
+			   {{ post.pid|get_tags|safe }}on {{ post.created|datetimeformat }}
+
+                        </p>
+			                    </header>
+
+                    <div class="post-description">
+                        <p>
+{{ post.intro|safe }}
+                        </p>
+			
+			<p> <a href="{{ post.pid|get_absolute_url_post }}">Read More</a></p>
+			
+                    </div>
+                </section>
+	
+	{% endfor %}
+
+                
+
+               
+            </div>
+
+            {% include "footer.html" %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>{% include "google_anal.html" %}
+
+</html>

@@ -1,136 +1,117 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="News, Commentry and the Sundry from Tech World and also from  Netzary">
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie ie6 lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie ie7 lt-ie10 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie ie8 lt-ie10 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <title> Official Blog of Team Netzary</title>
+	<meta charset="utf-8">
 
-    
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+	
+	<link rel="stylesheet" href="/static/blog.css">
+	<script async="" type="text/javascript" src="/static/webfont.js"></script><script src="/static/mixpanel-2.js" async="" type="text/javascript"></script><script src="/static/ga.js"></script><script type="text/javascript" async="" src="/static/quant.js"></script><script src="/static/modernizr-custom.js"></script>
 
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"><script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+	<title>Blogs Maintained by Netzary</title>
+	<meta name="description" content="A List Apart explores the design, development, and meaning of web content, with a special focus on web standards and best practices.">
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+	<link rel="canonical" href="http://netzary.com/">
+<script src="/static/pro.js" async="" type="text/javascript"></script><script async="async" src="/static/a.js" id="_bsaPRO_js" type="text/javascript"></script></head>
 
-
-
-<!--[if lte IE 8]>
-  
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-  
-<![endif]-->
-<!--[if gt IE 8]><!-->
-  
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  
-<!--<![endif]-->
+<body id="home-page" class="home-page breakpoint-600 sponsored">
 
 
 
 
 
-  
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="/static/css/blog.css">
-    <!--<![endif]-->
-  
+	<a class="go-to-nav" href="#main-nav" title="skip to nav">Menu</a>
+
+	<nav class="global-nav deluxe" id="main-nav" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+
+		<ul class="inline-items">
+			<li><a href="http://blogs.netzary.com" title="Home" itemprop="url"><span itemprop="name">Home</span></a></li>
+						<li><a href="http://www.netzary.com" itemprop="url"><span itemprop="name">Netzary Website</span></a></li>
+
+			<li><a href="http://blogs.netzary.com" itemprop="url"><span itemprop="name">Blogs Home</span></a></li>
+			
+			<li class="back-to-top"><a href="#top">Back to top</a></li>
+			<li class="head-east-young-man">
+				<form novalidate="novalidate" id="main-search" class="main-search" data-action="/search" action="http://www.google.com/search" method="GET">
+					<input name="sitesearch" value="netzary.com" type="hidden">
+	    <label for="search-keywords"><input id="search-keywords" data-name="keywards" name="q" placeholder="Search" aria-label="Search" required="required" type="search"></label>
+	<input id="submit-search" name="submit" src="/static/icon_magnify_v.svg" data-fallback="/components/assets/img/icon_magnify_v.png" alt="Submit" type="image">
+				</form>
+			</li>
+		</ul>
+
+	</nav>
 
 
-    
-
-    
-
-</head>
-<body>
-
-
-
-
-
-
-
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
-		{% if user %}
-	 <div class="content-subhead2">{% block pinned2 %} Hello {{ user }}{% endblock %}
-	 <ul>
-	 <li> <a href="/dashboard">Dashboard</a></li>
 	
 
-	 
-	 </ul>
-	 
-	 </div>
-	 {% else %}
-	 
-	 <ul>
+
 	
-	 
-	 <li> <a href="/login">Login</a></li>
-	 
-	 </ul>
-	 
-	 
-	 {% endif %}
 
-            
-	    {% include "side.html" %}
-	    
-        </div>
-    </div>
+	
 
-    <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
-   
-	    
-	      <div class="posts">
-                <h1 class="content-subhead">Latest Posts</h1>
+	<figure itemscope="" itemtype="http://schema.org/ImageObject" class="wide-hero">
+		<picture>
+			
+		    <img src="/static/2.png">
+		</picture>
+	</span></figure>
+
+	<div role="main" class="main-wrapper">
+
+		<section class="main-content">
+
+			
   {% for post in posts %}
-                <section class="post">
-                    <header class="post-header">
-                        <img class="post-avatar" alt="{{ post.author|get_author_name }}"  {{ post.author|get_avatar|safe }} 
 
-                        <h2 class="post-title">{{ post.title }}</h2>
+			<article class="entry-header">
 
-                        <p class="post-meta">
-                            By <a href="/authors/{{ post.author }}" class="post-author">{{ post.author }}</a> under 
-			   {{ post.pid|get_tags|safe }}on {{ post.created|datetimeformat }}
+	<h1 class="entry-title"><a href="{{ post.pid|get_absolute_url_post }}">
+	    {{ post.title }}</a></h1>
 
-                        </p>
-			                    </header>
+				<div class="entry-details">
 
-                    <div class="post-description">
-                        <p>
-{{ post.intro|safe }}
-                        </p>
+					by <a class="aside-author" href="/authors/{{ post.author }}">{{ post.author }}</a>
+	</div>
+					
+    <div class="comment-count"> {{ post.pid|get_tags|safe }}  on {{ post.created|datetimeformat }} <br></div>
+					
+
 			
-			<p> <a href="{{ post.pid|get_absolute_url_post }}">Read More</a></p>
+
+				<div class="entry-summary22">{{ post.intro|safe }}</div>
+
+			</article>
+			{% endfor %}
 			
-                    </div>
-                </section>
-	
-	{% endfor %}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
-                
+		</section>
 
-               
-            </div>
+		
 
-            {% include "footer.html" %}
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-</body>{% include "google_anal.html" %}
-
-</html>
+</body></html>
