@@ -1,6 +1,6 @@
 html, body, body div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,time,mark,audio,video,a{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;font-weight:inherit}article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}img,object,embed{max-width:100%}[hidden]{display:none}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;overflow-y:scroll}html,button,input,select,textarea{color:#222}body{margin:0;font-size:1em;line-height:1.4}ul{list-style:none}blockquote{quotes:none}blockquote:before,blockquote:after{content:'';content:none}del{text-decoration:line-through}::-moz-selection{background:#ddd;color:#000;text-shadow:none}::selection{background:#ddd;color:#000;text-shadow:none}img::selection{background:transparent}a:focus{outline:thin dotted}a:hover,a:active{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em
 0;padding:0}ins{background:#ff9;color:#000;text-decoration:none}mark{background:#ff0;color:#000;font-style:italic;font-weight:bold}pre,code,kbd,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}small{font-size:85%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0;-ms-interpolation-mode:bicubic;vertical-align:middle}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:0;margin:0;padding:0}label,input[type=button],input[type=submit],button{cursor:pointer}legend{border:0;*margin-left:-7px;padding:0;white-space:normal}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;*overflow:visible}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*width:13px;*height:13px}input[type="search"]{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top;resize:vertical}input:invalid,textarea:invalid{}table{border-collapse:collapse;border-spacing:0}th{font-weight:bold;vertical-align:bottom}td{font-weight:normal;vertical-align:top}.chromeframe{margin:0.2em 0;background:#ccc;color:black;padding:0.2em 0}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
-html,body{font:normal 18px/30px 'Playfair Display', georgia,serif;;text-rendering:optimizeLegibility;color:#222;background-color:#fff;height:100%}a{color:#2455c3;text-decoration:none}a:hover,a:focus{text-decoration:underline}:target:not(#comments):not(.global-nav){-webkit-animation:target-fade 2s 1;-moz-animation:target-fade 2s 1}@-webkit-keyframes target-fade{0%{background-color:rgba(255,248,135,1);outline:6px
+html,body{font:normal 18px/30px 'Playfair Display', 'Montserrat', georgia,serif;text-rendering:optimizeLegibility;color:#222;background-color:#fff;height:100%}a{color:#2455c3;text-decoration:none}a:hover,a:focus{text-decoration:underline}:target:not(#comments):not(.global-nav){-webkit-animation:target-fade 2s 1;-moz-animation:target-fade 2s 1}@-webkit-keyframes target-fade{0%{background-color:rgba(255,248,135,1);outline:6px
 solid rgba(255,248,135,1)}100%{background-color:rgba(255,248,135,0);outline:6px
 solid rgba(255,248,135,0)}}@-moz-keyframes target-fade{0%{background-color:rgba(255,248,135,.1);outline:6px
 solid rgba(255,248,135,1)}100%{background-color:rgba(255,248,135,0);outline:6px
@@ -131,7 +131,7 @@ dotted #be4337}.entry-header .issue-number .badge,
 .wide-hero .issue-number .badge,
 .tall-hero .issue-number .badge,
 .issue-page .logo-holder + .issue-number
-.badge{position:absolute;top:0;left:0;width:120px;height:120px;padding-top:24px;color:#fff;text-align:center;font-family:'Playfair Display', georgia,serif;;font-size:16px;line-height:22px;letter-spacing:0;font-weight:normal;font-style:italic}.compact-issue .wide-hero .issue-number
+.badge{position:absolute;top:0;left:0;width:120px;height:120px;padding-top:24px;color:#fff;text-align:center;font-family:'Playfair Display', 'Montserrat', georgia,serif;font-size:16px;line-height:22px;letter-spacing:0;font-weight:normal;font-style:italic}.compact-issue .wide-hero .issue-number
 span{width:100%;padding-top:14px;font-size:14px}.main-content .basic-title{margin-bottom:24px;font-size:36px;line-height:48px;font-family:"Franklin ITC",sans-serif;font-weight:bold}.main-content .basic-title.alt{font-size:24px;line-height:36px}.main-content .basic-title
 b{font-weight:normal}.main-content .blog-title{margin-bottom:36px;padding:240px
 0 36px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-size:48px;text-transform:uppercase;text-align:center;border-bottom:1px dotted #7f7f7f;background:url(/components/assets/img/blog-header.jpg) center 22px no-repeat}.ala-slug{width:960px;margin:50px
@@ -153,7 +153,7 @@ h2{padding:0}.entry-header .entry-details,
 .author-header .entry-details,
 .blog-header .entry-details{font-weight:normal;margin-bottom:12px;font-size:18px;line-height:30px}.entry-list li p.entry-details{font-weight:normal;margin-bottom:6px;font-size:16px;line-height:26px;font-family:"Franklin ITC Light",sans-serif}.compact-issue .entry-header .entry-details{padding:0;font-size:14px;line-height:22px}.entry-header .entry-details
 a{white-space:nowrap}.home-page .entry-header .entry-summary,
-.issue-page .entry-header .entry-summary{padding:0;font-size:24px;line-height:36px;font-style:normal;text-align:left;font-family:'Playfair Display', georgia,serif;}.home-page .compact-issue .entry-header .entry-summary{font-size:16px;line-height:24px}.entry-header
+.issue-page .entry-header .entry-summary{padding:0;font-size:24px;line-height:36px;font-style:normal;text-align:left;font-family:'Playfair Display', 'Montserrat', georgia,serif;}.home-page .compact-issue .entry-header .entry-summary{font-size:16px;line-height:24px}.entry-header
 .name{font-family:"Franklin ITC",sans-serif;font-style:normal;text-transform:uppercase}.optional-break{display:block}.entry-header
 time{white-space:nowrap}.entry-header time:before,
 footer a.author + time:before,
@@ -181,7 +181,7 @@ a{font-style:italic}.author-header + .column-intro a:after,
 .blog-header + .column-intro a:after,
 .item-summary.link-post > h1 a:after,
 .board-link a:after{content:"›";padding-left:6px}.column-name{display:block;font-family:"Franklin ITC",sans-serif;font-size:14px;line-height:30px;text-transform:uppercase;font-weight:bold;font-style:normal}.column-name.latest:before{content:"The Latest:";padding-right:6px}.column-name.featured:before{content:"Featured:";padding-right:6px}.column-name
-i{font-family:'Playfair Display', georgia,serif;;text-transform:none}.author-header h1,
+i{font-family:'Playfair Display', 'Montserrat', georgia,serif;text-transform:none}.author-header h1,
 .blog-header
 h1{margin-bottom:0;font-size:36px;line-height:42px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal}.blog-header h1
 a{color:#222}.author-header p.meta,
@@ -254,7 +254,7 @@ auto 24px;text-align:center}.compact-issue .issue-header{width:auto;margin-botto
 time{text-transform:uppercase;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal}.compact-issue .issue-header
 time{font-size:16px;line-height:16px}.issue-header time.new:before{content:"New!";display:inline-block;margin-right:6px;padding:2px
 4px;color:#fff;background:#bb3825;border-radius:4px;line-height:17px;font-weight:normal}html[data-useragent*='MSIE'] .issue-header time.new:before{padding-top:4px;padding-bottom:1px}.issue-header
-p{font-family:georgia,'Playfair Display', georgia,serif;;font-size:18px;line-height:30px;font-style:italic}.compact-issue .issue-header
+p{font-family:georgia,'Playfair Display', 'Montserrat', georgia,serif;font-size:18px;line-height:30px;font-style:italic}.compact-issue .issue-header
 p{font-size:16px;line-height:22px}.utility-side-bar{float:left;margin-left:-132px;width:240px}.content-minutiae{float:right;font-family:"Franklin ITC Light",sans-serif;margin:0;margin-right:-132px;width:240px;font-size:14px;line-height:28px;clear:left}.comment-bubble{position:relative;display:inline-block;font-size:24px;line-height:24px;padding:18px
 24px;font-family:"Franklin ITC Light",sans-serif;background:#2555c3;color:#fff;border:2px
 solid #2555c3;border-radius:6px;margin-bottom:18px;-webkit-transition:all .1s ease-in;-moz-transition:all .1s ease-in;-o-transition:all .1s ease-in;-ms-transition:all .1s ease-in;transition:all .1s ease-in}.comment-bubble:before{content:'';position:absolute;bottom:100%;left:54px;display:block;width:0;height:0;border-bottom:18px solid #2555c3;border-right:18px solid transparent}.comment-bubble:hover{color:#2555c3;background-color:#fff;text-decoration:none}.content-minutiae .minutiae-block{margin-bottom:18px;padding:0
@@ -285,7 +285,7 @@ svg{fill:#2555c3}.main-content > p,
 24px;background:#f9f9f9;border-radius:12px}.main-content>ul.entry-list>li.featured-comment:before{content:"“";position:absolute;right:calc(100% + 12px);font-size:120px;line-height:120px;color:#ba3925;font-family:georgia;font-weight:bold}.main-content > ul.entry-list > li.featured-comment
 h3{margin:0;font-family:"Franklin ITC",sans-serif;font-weight:bold;text-transform:uppercase;font-size:14px}.main-content > ul.entry-list > li.featured-comment
 p{margin-bottom:12px}.main-content > ul.entry-list > li.featured-comment
-footer{font-family:'Playfair Display', georgia,serif;;font-size:14px;line-height:22px}.main-content > ul.entry-list > li.featured-comment .commenter-name{font-size:14px;text-transform:uppercase}.main-content > ul.entry-list > li.featured-comment footer .source-title{display:block}.main-content figure.cat-image{float:left;width:216px;margin:0
+footer{font-family:'Playfair Display', 'Montserrat', georgia,serif;font-size:14px;line-height:22px}.main-content > ul.entry-list > li.featured-comment .commenter-name{font-size:14px;text-transform:uppercase}.main-content > ul.entry-list > li.featured-comment footer .source-title{display:block}.main-content figure.cat-image{float:left;width:216px;margin:0
 24px 24px 0}.main-content figure.cat-image
 img{max-height:102px}.main-content p.cat-description{min-height:102px}.article-layout .main-content > p,
 .article-layout .main-content > pre,
@@ -314,7 +314,7 @@ h1{font-size:14px;line-height:22px;color:#ba3925}.article-layout .main-content .
 p{font-size:18px}.article-layout .main-content .sidebar.var1 article
 p{margin-bottom:12px}.article-layout .main-content
 .supplement{width:244px}.article-layout .main-content .sidebar
-h1{font-family:'Playfair Display', georgia,serif;;font-size:14px;line-height:22px}.article-layout .main-content .sidebar.var1 h1, .article-layout .main-content .sidebar.var1 .related-articles article
+h1{font-family:'Playfair Display', 'Montserrat', georgia,serif;font-size:14px;line-height:22px}.article-layout .main-content .sidebar.var1 h1, .article-layout .main-content .sidebar.var1 .related-articles article
 h1{font-family:"Franklin ITC",sans-serif;font-weight:bold}.article-layout .main-content .sidebar.var1 .related-articles
 h1{font-family:"Franklin ITC Light",sans-serif;font-weight:normal;color:#222}.article-layout .main-content .sidebar.var1 .related-articles h1.primary-cat-header{margin-bottom:12px}.article-layout .main-content .sidebar.var1 .related-articles h1
 a{font-family:"Franklin ITC",sans-serif;display:block;font-weight:bold;font-size:18px}.article-layout .main-content .sidebar.var1 .related-articles article p, .article-layout .main-content .sidebar.var1 .related-articles article h1, .article-layout .main-content .sidebar.var1 .related-articles article
@@ -581,12 +581,12 @@ ul{width:1920px}.main-wrapper{padding-top:168px}.home-page .wide-hero, .issue-pa
 #___gcse_0 .gsc-results .gsc-imageResult-classic:hover,
 #___gcse_0 .gsc-results .gsc-imageResult-column:hover{border:0;padding:0}#___gcse_0 .gcsc-branding{display:none}#___gcse_0 .gsc-control-cse .gs-result .gs-title,
 #___gcse_0 .gsc-control-cse .gs-result .gs-title
-*{height:auto;margin-bottom:3px;font-size:18px;line-height:24px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal;color:#2455c3 !important;text-decoration:none}#___gcse_0 .gsc-above-wrapper-area{margin-bottom:18px}#___gcse_0 .gsc-webResult .gsc-result{margin-bottom:24px}#___gcse_0 .gsc-url-top{margin-bottom:12px;font-size:12px;line-height:12px}#___gcse_0 .gs-bidi-start-align.gs-snippet{font:normal 18px/30px 'Playfair Display', georgia,serif;;text-rendering:optimizeLegibility;font-size:14px;line-height:24px;color:#222}#___gcse_0 .gsc-selected-option-container{width:auto !important;position:relative;display:inline-block;padding-right:3em}#___gcse_0 .gsc-option-menu-container{width:auto !important}#___gcse_0 .gsc-option-menu-container:after{content:"";position:absolute;z-index:0;top:1em;right: .5em;width:0;height:0;border-style:solid;border-width:8px 5px 0 5px;border-color:#ccc transparent transparent transparent;pointer-events:none}#___gcse_0 .cse .gs-webResult .gs-visibleUrl,
+*{height:auto;margin-bottom:3px;font-size:18px;line-height:24px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal;color:#2455c3 !important;text-decoration:none}#___gcse_0 .gsc-above-wrapper-area{margin-bottom:18px}#___gcse_0 .gsc-webResult .gsc-result{margin-bottom:24px}#___gcse_0 .gsc-url-top{margin-bottom:12px;font-size:12px;line-height:12px}#___gcse_0 .gs-bidi-start-align.gs-snippet{font:normal 18px/30px 'Playfair Display', 'Montserrat', georgia,serif;text-rendering:optimizeLegibility;font-size:14px;line-height:24px;color:#222}#___gcse_0 .gsc-selected-option-container{width:auto !important;position:relative;display:inline-block;padding-right:3em}#___gcse_0 .gsc-option-menu-container{width:auto !important}#___gcse_0 .gsc-option-menu-container:after{content:"";position:absolute;z-index:0;top:1em;right: .5em;width:0;height:0;border-style:solid;border-width:8px 5px 0 5px;border-color:#ccc transparent transparent transparent;pointer-events:none}#___gcse_0 .cse .gs-webResult .gs-visibleUrl,
 #___gcse_0 .gs-webResult .gs-visibleUrl,
 #___gcse_0 .cse .gs-webResult .gs-visibleUrl-short,
 #___gcse_0 .gs-webResult .gs-visibleUrl-short,
 #___gcse_0 .gs-imageResult .gs-visibleUrl,
-#___gcse_0 .gs-imageResult .gs-visibleUrl-short{font:normal 14px/24px 'Playfair Display', georgia,serif;;text-rendering:optimizeLegibility;color:#666;font-style:italic}#___gcse_0 .cse .gs-webResult .gs-visibleUrl b,
+#___gcse_0 .gs-imageResult .gs-visibleUrl-short{font:normal 14px/24px 'Playfair Display', 'Montserrat', georgia,serif;text-rendering:optimizeLegibility;color:#666;font-style:italic}#___gcse_0 .cse .gs-webResult .gs-visibleUrl b,
 #___gcse_0 .gs-webResult .gs-visibleUrl b,
 #___gcse_0 .cse .gs-webResult .gs-visibleUrl-short b,
 #___gcse_0 .gs-webResult .gs-visibleUrl-short b,
@@ -885,7 +885,7 @@ img{width:60px;height:45px;margin-right:6px}.partner-promos
     line-height: 36px;
     font-style: normal;
     text-align: left;
-    font-family: 'Playfair Display', georgia,serif;;
+    font-family: 'Montserrat','Playfair Display',  georgia,serif;
 }
 
 .body_look {
@@ -897,10 +897,12 @@ img{width:60px;height:45px;margin-right:6px}.partner-promos
     line-height: 26px;
     font-style: normal;
     text-align: left;
-    font-family: 'Playfair Display', georgia,serif;;
+    font-family: 'Montserrat', 'Playfair Display',  georgia,serif;
 }
 
 .post-headers {
+    font-family:  'Playfair Display',  'Montserrat', georgia,serif;
+
  font-size: 300%;
     line-height: 56px;
     text-align:center;
