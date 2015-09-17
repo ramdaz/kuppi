@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-    <title>Normalize.css: Make browsers render all elements more consistently.</title>
+    <title>Netzary Blogs --Independent Commentary on State of the Art Enterprise Computing, Cloud, Storage, Servers, Services and Open Source Development</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
     <link rel="stylesheet" href="/static/normalize.css">
     <link rel="stylesheet" href="/static/main.css">
@@ -12,13 +12,14 @@
     <div class="container">
       <div class="site-box">
         <div class="hgroup">
+	 <div class="body_class">  <a class="post-category post-category-pure" href="/">Blogs Home</a><a class="post-category post-category-design" href="http://www.netzary.com">Netzary Web Site</a> <br></div> 
           <h1 class="logo">Netzary Blogs</h1>
-          <h2 class="tagline">Independent Commentary on State of the Art Enterprise Computing, Cloud, Storage, Servers, Services and Open Source Development </h2>
+          <h4 class="tagline"> Independent Commentary on State of the Art Enterprise Computing, Cloud, Storage, Servers, Services and Open Source Development </h2>
         </div>
 
 {% for post in posts %}
 
-			<article>
+
 
 	<h1 class="title1"><a href="{{ post.pid|get_absolute_url_post }}">
 	    {{ post.title }}</a></h1>
@@ -35,7 +36,7 @@
 
 				<div class="intro">{{ post.intro|safe }}</div>
 
-			</article>
+
 			{% endfor %}
 			
 
