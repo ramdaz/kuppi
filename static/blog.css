@@ -220,31 +220,7 @@ a.active{color:#fff;background:#bb3925;cursor:default}ul.secondary-nav{margin:81
 0 48px;border-top:1px dotted #bfbfbf}ul.secondary-nav.compressed{margin:0
 0 48px;border-top:1px dotted #bfbfbf}.alpha-container{height:812px;overflow:auto}.alpha-container
 li{position:relative;z-index:10;background:#fff}.alpha-container[data-show] li{display:none}.alpha-container[data-show=a] li[data-letter=a],
-.alpha-container[data-show=b] li[data-letter=b],
-.alpha-container[data-show=c] li[data-letter=c],
-.alpha-container[data-show=d] li[data-letter=d],
-.alpha-container[data-show=e] li[data-letter=e],
-.alpha-container[data-show=f] li[data-letter=f],
-.alpha-container[data-show=g] li[data-letter=g],
-.alpha-container[data-show=h] li[data-letter=h],
-.alpha-container[data-show=i] li[data-letter=i],
-.alpha-container[data-show=j] li[data-letter=j],
-.alpha-container[data-show=k] li[data-letter=k],
-.alpha-container[data-show=l] li[data-letter=l],
-.alpha-container[data-show=m] li[data-letter=m],
-.alpha-container[data-show=n] li[data-letter=n],
-.alpha-container[data-show=o] li[data-letter=o],
-.alpha-container[data-show=p] li[data-letter=p],
-.alpha-container[data-show=q] li[data-letter=q],
-.alpha-container[data-show=r] li[data-letter=r],
-.alpha-container[data-show=s] li[data-letter=s],
-.alpha-container[data-show=t] li[data-letter=t],
-.alpha-container[data-show=u] li[data-letter=u],
-.alpha-container[data-show=v] li[data-letter=v],
-.alpha-container[data-show=w] li[data-letter=w],
-.alpha-container[data-show=x] li[data-letter=x],
-.alpha-container[data-show=y] li[data-letter=y],
-.alpha-container[data-show=z] li[data-letter=z]{display:block}ul.secondary-nav li
+
 a{display:block;padding:9px
 12px 9px 0;border-bottom:1px dotted #bfbfbf;font-size:18px;line-height:24px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal}ul.secondary-nav.compressed li
 a{padding:7px
@@ -518,14 +494,6 @@ h1{font-family:"Franklin ITC",sans-serif;font-weight:bold;text-transform:upperca
 .arrow{font-family:"Franklin ITC",sans-serif;font-weight:bold;color:#2455c3;display:inline-block}.partner-promos .arrow:hover{text-decoration:underline}.partner-promos .arrow:after{content:" ›"}.partner-promos
 img{float:left;margin-right:12px;margin-bottom:12px;position:relative;top:4px}.affiliates{margin-top:-12px}.global-footer .affiliates>a{display:inline-block;width:60px;height:60px;text-indent:100%;overflow:hidden;color:transparent;white-space:nowrap}.affiliates > a
 img{display:none}.affiliates
-.aea{background-image:url(/components/assets/img/logo_an-event-apart_mark.svg)}.no-svg .affiliates
-.aea{background-image:url(/components/assets/img/logo_an-event-apart_mark.png)}.affiliates
-.aba{height:63px;background-image:url(/components/assets/img/logo_a-book-apart_3.svg);background-size:contain;background-repeat:no-repeat}.no-svg .affiliates
-.aba{background-image:url(/components/assets/img/logo_a-book-apart_3.png)}.affiliates
-.hc{background-image:url(/components/assets/img/logo_happy-cog.svg)}.no-svg .affiliates
-.hc{background-image:url(/components/assets/img/logo_happy-cog.png)}.affiliates
-.hch{background-image:url(/components/assets/img/logo_happy-cog-hosting.svg)}.no-svg .affiliates
-.hch{background-image:url(/components/assets/img/logo_happy-cog-hosting.png)}.affiliates
 .arcus{width:56px;height:56px;background-image:url(/components/assets/img/logo_arcustech.svg);background-repeat:no-repeat}.no-svg .affiliates
 .arcus{background-image:url(/components/assets/img/logo_arcustech.png)}.entry-list>li{margin-bottom:32px}.entry-list li .entry-title{font-size:18px;line-height:24px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal}.entry-list.step-up .entry-title{font-size:24px;line-height:30px}.entry-list li
 p{font-size:14px;line-height:24px}.entry-list.step-up
@@ -566,64 +534,7 @@ a{font-size:12px;line-height:18px}.modal-message a:before{content:"‹ ";font-si
 pre{white-space:pre}.event-promo{width:50%;background:#eee;height:100px;margin:2em
 auto}@media only screen and (min-width: 121.5em) and (min-height: 60em){.killer-logo>a{width:1920px;height:240px;margin-top:-64px}.global-nav
 ul{width:1920px}.main-wrapper{padding-top:168px}.home-page .wide-hero, .issue-page .wide-hero{padding-top:168px}.single-column-display,.two-column-display,.multi-column-display{margin-top:240px;padding-top:0}.deadly-subtitle{background-size:cover}.global-footer .inline-items{width:1920px}}#___gcse_0 .gsc-control-cse,
-#___gcse_0 .gsc-above-wrapper-area,
-#___gcse_0 .gsc-result-info,
-#___gcse_0 .gsc-webResult,
-#___gcse_0 .gsc-thumbnail-inside,
-#___gcse_0 .gsc-url-top,
-#___gcse_0 .gsc-table-result,
-#___gcse_0 .gs-result a.gs-visibleUrl,
-#___gcse_0 .gs-result .gs-visibleUrl,
-#___gcse_0 .gsc-webResult .gsc-result,
-#___gcse_0 .cse .gsc-webResult.gsc-result:hover,
-#___gcse_0 .gsc-webResult.gsc-result:hover,
-#___gcse_0 .gsc-webResult.gsc-result.gsc-promotion:hover,
-#___gcse_0 .gsc-results .gsc-imageResult-classic:hover,
-#___gcse_0 .gsc-results .gsc-imageResult-column:hover{border:0;padding:0}#___gcse_0 .gcsc-branding{display:none}#___gcse_0 .gsc-control-cse .gs-result .gs-title,
-#___gcse_0 .gsc-control-cse .gs-result .gs-title
-*{height:auto;margin-bottom:3px;font-size:18px;line-height:24px;font-family:"Franklin ITC",sans-serif;font-weight:bold;font-style:normal;color:#2455c3 !important;text-decoration:none}#___gcse_0 .gsc-above-wrapper-area{margin-bottom:18px}#___gcse_0 .gsc-webResult .gsc-result{margin-bottom:24px}#___gcse_0 .gsc-url-top{margin-bottom:12px;font-size:12px;line-height:12px}#___gcse_0 .gs-bidi-start-align.gs-snippet{font:normal 18px/30px 'Playfair Display', 'Montserrat', georgia,serif;text-rendering:optimizeLegibility;font-size:14px;line-height:24px;color:#222}#___gcse_0 .gsc-selected-option-container{width:auto !important;position:relative;display:inline-block;padding-right:3em}#___gcse_0 .gsc-option-menu-container{width:auto !important}#___gcse_0 .gsc-option-menu-container:after{content:"";position:absolute;z-index:0;top:1em;right: .5em;width:0;height:0;border-style:solid;border-width:8px 5px 0 5px;border-color:#ccc transparent transparent transparent;pointer-events:none}#___gcse_0 .cse .gs-webResult .gs-visibleUrl,
-#___gcse_0 .gs-webResult .gs-visibleUrl,
-#___gcse_0 .cse .gs-webResult .gs-visibleUrl-short,
-#___gcse_0 .gs-webResult .gs-visibleUrl-short,
-#___gcse_0 .gs-imageResult .gs-visibleUrl,
-#___gcse_0 .gs-imageResult .gs-visibleUrl-short{font:normal 14px/24px 'Playfair Display', 'Montserrat', georgia,serif;text-rendering:optimizeLegibility;color:#666;font-style:italic}#___gcse_0 .cse .gs-webResult .gs-visibleUrl b,
-#___gcse_0 .gs-webResult .gs-visibleUrl b,
-#___gcse_0 .cse .gs-webResult .gs-visibleUrl-short b,
-#___gcse_0 .gs-webResult .gs-visibleUrl-short b,
-#___gcse_0 .gs-imageResult .gs-visibleUrl b,
-#___gcse_0 .gs-imageResult .gs-visibleUrl-short
-b{font-weight:normal}#___gcse_0 td.gsc-table-cell-thumbnail{display:none}#___gcse_0 .gs-no-results-result .gs-snippet,
-#___gcse_0 .gs-error-result .gs-snippet{background:transparent;border:0}#___gcse_0 .cse .gsc-cursor-box,
-#___gcse_0 .gsc-cursor-box{border-top:1px dotted #999;padding:12px
-0 0 0}#___gcse_0 .gsc-results .gsc-cursor-box .gsc-cursor-page{text-decoration:none;margin-right:12px;color:#222}#___gcse_0 .cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page,
-#___gcse_0 .gsc-results .gsc-cursor-page.gsc-cursor-current-page{position:relative;background:transparent;font-weight:normal;color:#666;padding:0;text-shadow:none}#___gcse_0 .cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page:after,
-#___gcse_0 .gsc-results .gsc-cursor-page.gsc-cursor-current-page:after{content:"";position:absolute;top:-2px;left:50%;width:18px;height:18px;background:rgba(0,0,0,.1);border-radius:50%;-webkit-transform:translateX(-43%);-moz-transform:translateX(-43%);-ms-transform:translateX(-43%);-o-transform:translateX(-43%);transform:translateX(-43%)}.screen-reader{display:block !important;left:-9999px !important;position:absolute !important}@media
-print{body.printable .global-nav,
-body.printable .propagation-enablers,
-body.printable .post-article,
-body.printable .user-tools,
-body.printable .global-footer .inline-items:not(.copyright),
-body.printable .global-footer .inline-items.copyright small + small,
-body.printable .global-footer .affiliates,
-body.printable .global-footer .promo-holder,
-body.printable .deadly-subtitle,
-body.printable .content-minutiae .minutiae-block:not(:first-child),.sponsor-top,.the-deck.in-article,.job-board.in-article{display:none ! important}body.printable .killer-logo{max-width:100%;padding-right:36px;padding-left:36px}body.printable .killer-logo>a{max-width:100%;margin-top:0;-webkit-print-color-adjust:exact}body.printable .issue-number{left:0 ! important;-webkit-print-color-adjust:exact}body.printable .entry-header,
-body.printable .blog-header,
-body.printable .author-header{width:auto ! important;margin-right:36px ! important;margin-left:36px ! important}body.printable .entry-title{font-size:36px ! important;line-height:48px ! important}body.printable .article-layout .main-content > h2,
-body.printable .article-layout .main-content > h3,
-body.printable .article-layout .main-content > h4,
-body.printable .article-layout .main-content > h5,
-body.printable .article-layout .main-content > h6,
-body.printable .article-layout .entry-footer{margin-right:36px;margin-left:36px;font-size:16px ! important}body.printable .article-layout .entry-footer{min-height:none;padding-bottom:0}body.printable .article-layout .main-content>h2{font-size:20px}body.printable .article-layout .main-content > p,
-body.printable .article-layout .main-content > pre,
-body.printable .article-layout .main-content > ol,
-body.printable .article-layout .main-content > ul,
-body.printable .article-layout .main-content > figure,
-body.printable .article-layout .main-content > div.illustration,
-body.printable .article-layout .main-content .entry-footnotes{margin-right:36px ! important;margin-left:36px ! important;margin-bottom:12px ! important;font-size:16px !important;line-height:24px ! important}body.printable .entry-details{font-size:16px !important;line-height:24px ! important}body.printable .article-layout .main-content>p{widows:3;orphans:3}body.printable .article-layout .main-content blockquote,
-body.printable .article-layout .main-content figcaption,
-body.printable .article-layout .main-content ul li,
-body.printable .article-layout .main-content
+
 code{font-size:16px !important;line-height:24px ! important}body.printable .article-layout .main-content
 pre{border-top-style:solid ! important;border-bottom-style:solid ! important}body.printable .article-layout .main-content
 a{color:#222 ! important}body.printable .article-layout .main-content p a[href]:after,
