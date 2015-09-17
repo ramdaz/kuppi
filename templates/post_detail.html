@@ -6,14 +6,14 @@
 {% block content %}
 
 
-                        <div class="post-headers"> {{ title }} </div>
+                  <h1 class="title1"> {{ title }} </h1>
 
                       
-                            By <a href="#" class="post-author">{{ author|get_author_name }}</a> under 
+                           <div class="byline">    By <a href="#" class="post-author">{{ author|get_author_name }}</a> under 
 			    {{ pid|get_tags|safe }} <br>on 
 			    {{ created|datetimeformat }} {% if really_edited %} and last updated on {{ edited|datetimeformat  }} {% endif %}
-                  <br><br>
-<div class="entry-summary22">
+                  <br></div>
+<div class="body_class">
 {{ body|safe }}
 </div>
 		    <div id="author_bio">

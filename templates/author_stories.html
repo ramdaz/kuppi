@@ -8,23 +8,23 @@
 
   {% for post in posts %}
                 
-		<div class="post-headers"> {{ post.title }}</div>
+		<h1 class="title1">  {{ post.title }}</h1>
 
-<div class="entry-summary22">
+   <div class="byline"> 
                         <p>
                             By <a href="/authors/{{ post.author }}" class="post-author">{{ post.author }}</a> under 
 			   {{ post.pid|get_tags|safe }}on {{ post.created|datetimeformat }}
 
                         </p>
-			                 
+			     </div>            
 
                 
-                        <p>
+                       <div class="intro">
 {{ post.intro|safe }}
-                        </p>
+                        </div>
 			
 			<p> <a href="{{ post.pid|get_absolute_url_post }}">Read More</a></p>
-			</div>
+		
 	{% endfor %}
 
 {% endblock %}
