@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block title %} {{ title }}{% endblock %}
   {% block keywords %} {{ keywords }}{% endblock %}
+{% block ajax %}
 
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "aa934c17-9b74-4c23-8457-22d12549f858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+{% endblock %}
 
 {% block content %}
 
@@ -21,6 +26,13 @@
 		    {{ author|get_author_bio|safe }}      <img class="post-avatar" alt="{{ author }}"  {{ author|get_avatar|safe }} 
 
 		    </div>
+		    
+<span class='st_sharethis_large' displayText='ShareThis'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_pinterest_large' displayText='Pinterest'></span>
+<span class='st_email_large' displayText='Email'></span>
  
 
 <div id="comments">
